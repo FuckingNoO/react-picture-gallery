@@ -1,11 +1,15 @@
 require('normalize.css/normalize.css');
-// require('styles/App.css');
 require('../styles/App.scss');
 
 import React from 'react';
-var imageDatas = require('../images/imageData.json');
+import ImgFigure from './ImgFigure';
 /**
- * 生成图片地址
+ *  load imageData in JSON
+ */
+let imageDatas = require('../images/imageData.json');
+
+/**
+ *  generate image URL function
  */
 imageDatas = (function generateImageUrl(imgDataArr) {
   for(let i = 1; i < imgDataArr.length; i++){
@@ -14,16 +18,23 @@ imageDatas = (function generateImageUrl(imgDataArr) {
     imgDataArr[i] = singleimgData;
   }
   return imgDataArr;
-})(imageDatas)
+})(imageDatas);
+
 
 class AppComponent extends React.Component {
   render() {
+    let imageFigures = [],
+      controllerUnits = [];
+    imageDatas.forEach((value) => {
+      imageFigures.push(<ImgFigure data={value}/>)
+    });
     return (
       <section className="stage">
         <section className="image-sec">
-          <image alt="" src=""/>
+          {imageFigures}
         </section>
         <nav className="controller-nav">
+          {controllerUnits}
         </nav>
       </section>
     );
