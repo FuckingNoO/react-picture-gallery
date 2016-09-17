@@ -19,3 +19,10 @@ body {
   border-width: 1px 0;
   background: #666;
 }
+
+.index .p-start {
+  margin: 20px auto;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
